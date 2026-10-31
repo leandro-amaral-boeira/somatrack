@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SomaTrack V3 - Monitoramento Neuro-Somático</title>
@@ -67,6 +68,15 @@
             overflow-x: hidden;
         }
     </style>
+
+<!-- PWA Meta Tags -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4CAF50">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+
+
+    
 </head>
 <body class="text-slate-800 antialiased">
 
@@ -1063,5 +1073,22 @@
     }
 
 </script>
+
+    <!-- Registo do Service Worker para PWA -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(registration => {
+          console.log('ServiceWorker registado com sucesso no escopo: ', registration.scope);
+        })
+        .catch(err => {
+          console.log('Falha no registo do ServiceWorker: ', err);
+        });
+    });
+  }
+</script>
+
+    
 </body>
 </html>
